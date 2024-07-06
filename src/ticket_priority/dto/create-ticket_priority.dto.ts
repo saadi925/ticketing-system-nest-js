@@ -1,12 +1,16 @@
-// src/ticket/dto/create-ticket-priority.dto.ts
-import { IsNotEmpty, IsString, IsOptional } from 'class-validator';
+// src/ticket_priority/dto/create-ticket_priority.dto.ts
+import { ApiProperty } from '@nestjs/swagger';
+import { IsString, IsNotEmpty } from 'class-validator';
 
 export class CreateTicketPriorityDto {
-  @IsNotEmpty()
+  @ApiProperty({ description: 'Name of the priority' })
   @IsString()
+  @IsNotEmpty()
   name: string;
 
-  @IsOptional()
+  @ApiProperty({ description: 'Color id of the priority' })
   @IsString()
+  @IsNotEmpty()
   colorId: string;
 }
+

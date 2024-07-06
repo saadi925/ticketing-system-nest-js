@@ -1,4 +1,10 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateTagDto } from './create-ticket_tag.dto';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsString, IsNotEmpty, IsOptional } from 'class-validator';
 
-export class UpdateTicketTagDto extends PartialType(CreateTagDto) {}
+export class UpdateTicketTagDto {
+  @ApiProperty({ description: 'Optional name of the tag' })
+  @IsOptional()
+  @IsString()
+  @IsNotEmpty()
+  readonly name?: string;
+}

@@ -1,13 +1,11 @@
-// src/ticket/dto/create-ticket-comment.dto.ts
-import { IsNotEmpty, IsString } from 'class-validator';
+import { ApiProperty } from "@nestjs/swagger";
+import { IsNotEmpty, IsString } from "class-validator";
 
 export class CreateTicketCommentDto {
-  @IsNotEmpty()
+  @ApiProperty({ description: 'Content of the comment' })
   @IsString()
+  @IsNotEmpty()
   content: string;
-
-  @IsNotEmpty()
-  @IsString()
-  ticketId: string;
+  @ApiProperty({ description: 'id of the ticket' })
+  ticketId : string
 }
-

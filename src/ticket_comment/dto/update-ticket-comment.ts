@@ -1,4 +1,9 @@
-import { PartialType } from "@nestjs/mapped-types";
-import { CreateTicketCommentDto } from "./create-ticket-comment";
+import { ApiProperty } from '@nestjs/swagger';
+import { IsString, IsNotEmpty } from 'class-validator';
 
-export class UpdateTicketCommentDto extends PartialType(CreateTicketCommentDto){}
+export class UpdateTicketCommentDto {
+  @ApiProperty({ description: 'Content of the comment', required: false })
+  @IsString()
+  @IsNotEmpty()
+  content?: string;
+}

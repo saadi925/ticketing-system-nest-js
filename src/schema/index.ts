@@ -1,4 +1,5 @@
 import { Color } from "./color.entity";
+import { EmailVerification } from "./email_verification.entity";
 import { Ticket } from "./ticket.entity";
 import { TicketCategory } from "./ticket_category";
 import { TicketComment } from "./ticket_comment.entity";
@@ -15,7 +16,7 @@ export const entities = [
   TicketStatus,
   TicketPriority,
   TicketCategory,
-
+ EmailVerification,
   Tag,
   Color
 ];
