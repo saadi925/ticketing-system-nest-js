@@ -1,11 +1,12 @@
+// src/ticket/ticket.controller.ts
 import { Controller, Get, Post, Body, Param, Delete, Put, Query, UseGuards, ParseIntPipe } from '@nestjs/common';
 import { TicketService } from './ticket.service';
 import { CreateTicketDto } from './dto/create-ticket.dto';
 import { UpdateTicketDto } from './dto/update-ticket.dto';
-import { JwtAuthGuard } from '@/auth/auth.guard';
 import { RolesGuard } from '@/auth/rbac.guard';
+import { JwtAuthGuard } from '@/auth/auth.guard';
 import { Roles } from '@/auth/role.decorator';
-const intPipe = new ParseIntPipe({optional : true})
+const intPipe = new ParseIntPipe({optional : true});
 @Controller('tickets')
 @UseGuards(JwtAuthGuard, RolesGuard)
 export class TicketController {
@@ -19,8 +20,12 @@ export class TicketController {
 
   @Get()
   @Roles('admin', 'agent', 'user')
-  findAll(@Query('page', intPipe) page = 1, @Query('limit', intPipe) limit = 10) {
-    return this.ticketService.findAll(page, limit);
+  findAll(
+    @Query('page', intPipe) page = 1,
+    @Query('limit', intPipe) limit = 10,
+    @Query('filter') filter?: string,
+  ) {
+    return this.ticketService.findAll(Number(page), Number(limit), filter);
   }
 
   @Get(':id')

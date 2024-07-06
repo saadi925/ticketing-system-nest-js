@@ -10,6 +10,9 @@ import { APP_GUARD } from '@nestjs/core';
 import { TicketModule } from './ticket/ticket.module';
 import { ColorModule } from './color/color.module';
 import { CategoryModule } from './ticket_category/ticket_category.module';
+import { TicketCommentModule } from './ticket_comment/ticket_comment.module';
+import { TicketPriorityModule } from './ticket_priority/ticket_priority.module';
+import { TicketTagsModule } from './ticket_tags/ticket_tags.module';
 
 @Module({
   imports: [
@@ -17,12 +20,15 @@ import { CategoryModule } from './ticket_category/ticket_category.module';
     TypeOrmModule.forFeature(entities),
     AuthModule,
     ConfigModule.forRoot({
-      envFilePath : ".env"
+      envFilePath : ".env",
     }),
     TicketModule,
     ColorModule,
     CategoryModule,
-    CategoryModule
+    CategoryModule,
+    TicketCommentModule,
+    TicketPriorityModule,
+    TicketTagsModule
   ],
   providers: [
     {

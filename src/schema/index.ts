@@ -15,6 +15,7 @@ export const entities = [
   TicketStatus,
   TicketPriority,
   TicketCategory,
+
   Tag,
   Color
 ];

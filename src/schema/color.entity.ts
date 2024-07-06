@@ -1,4 +1,3 @@
-// src/entities/color.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { TicketPriority } from './ticket_priority.entity';
 import { TicketStatus } from './ticket_status.entity';
